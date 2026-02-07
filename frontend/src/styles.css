@@ -75,3 +75,61 @@ button:hover {
 .delete-btn:hover {
   background: #dc2626;
 }
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.status-badge.pending {
+  background: #f59e0b;
+  color: black;
+}
+
+.status-badge.completed {
+  background: #10b981;
+  color: white;
+}
+
+.filter-bar {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-bar button {
+  background: #374151;
+}
+
+.filter-bar button:hover {
+  background: #4b5563;
+}
+.task-info h3 {
+  margin: 0;
+}
+
+.task-info p {
+  margin: 4px 0;
+}
+.status-select {
+  padding: 10px 5px 10px 5px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #374151;
+  color: white;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.status-select:hover {
+  background: #4b5563;
+}
+
+.status-select:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}

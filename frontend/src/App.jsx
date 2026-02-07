@@ -6,7 +6,11 @@ import TaskList from "./components/Tasklist";
 
 function App() {
     const [tasks, setTasks] = useState([]);
-
+    const [filter, setFilter] = useState("all");
+    const filteredTasks =
+        filter === "all"
+            ? tasks
+            : tasks.filter(task => task.status === filter);
     const fetchTasks = async () => {
         const res = await axios.get("http://localhost:5000/tasks");
         setTasks(res.data);
@@ -20,7 +24,12 @@ function App() {
         <div className="container">
             <h1>Task Manager</h1>
             <TaskForm refreshTasks={fetchTasks} />
-            <TaskList tasks={tasks} refreshTasks={fetchTasks} />
+            <div className="filter-bar">
+                <button onClick={() => setFilter("all")}>All</button>
+                <button onClick={() => setFilter("pending")}>Pending</button>
+                <button onClick={() => setFilter("completed")}>Completed</button>
+            </div>
+            <TaskList tasks={filteredTasks} refreshTasks={fetchTasks} />
         </div>
     );
 }

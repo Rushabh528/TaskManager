@@ -4,14 +4,14 @@ import axios from "axios";
 function TaskForm({ refreshTasks }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-
+    const [status, setStatus] = useState("pending");
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         await axios.post("http://localhost:5000/tasks", {
             title,
             description,
-            status: "pending"
+            status
         });
 
         setTitle("");
@@ -35,7 +35,14 @@ function TaskForm({ refreshTasks }) {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
-
+                <select
+                    className="status-select"
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                >
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
                 <button type="submit">Add</button>
             </form>
         </div>

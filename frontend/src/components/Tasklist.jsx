@@ -16,7 +16,9 @@ function TaskList({ tasks, refreshTasks }) {
                     <div className="task-info">
                         <h3>{task.title}</h3>
                         <p>{task.description}</p>
-                        <p className="status">Status: {task.status}</p>
+                        <p className={`status-badge ${task.status}`}>
+                            {task.status}
+                        </p>
                     </div>
 
                     <button
