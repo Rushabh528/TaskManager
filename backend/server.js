@@ -7,11 +7,16 @@ const PORT = process.env.PORT || 5000;
 const taskRoutes = require("./routes/tasks");
 
 const app = express();
-app.use(
-    cors({
-        origin: "*",
-    })
-); app.use(express.json());
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://task-manager-lovat-sigma.vercel.app/"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+}));
+app.options("*", cors());
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("DB connected"))
