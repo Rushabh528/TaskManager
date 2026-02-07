@@ -8,7 +8,7 @@ function TaskForm({ refreshTasks }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post("http://localhost:5000/tasks", {
+        await axios.post("https://taskmanager-eiip.onrender.com/tasks", {
             title,
             description,
             status

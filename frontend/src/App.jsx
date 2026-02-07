@@ -12,7 +12,7 @@ function App() {
             ? tasks
             : tasks.filter(task => task.status === filter);
     const fetchTasks = async () => {
-        const res = await axios.get("http://localhost:5000/tasks");
+        const res = await axios.get("https://taskmanager-eiip.onrender.com/tasks");
         setTasks(res.data);
     };
 

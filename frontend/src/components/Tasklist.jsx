@@ -3,7 +3,7 @@ import axios from "axios";
 function TaskList({ tasks, refreshTasks }) {
 
     const deleteTask = async (id) => {
-        await axios.delete(`http://localhost:5000/tasks/${id}`);
+        await axios.delete(`https://taskmanager-eiip.onrender.com/tasks/${id}`);
         refreshTasks();
     };
 
